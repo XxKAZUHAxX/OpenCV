@@ -18,12 +18,15 @@ while True:
     img = detector.findHands(img)
     lmList = detector.findPosition(img, draw=False)
     if len(lmList)!= 0:
-        print(lmList[4])
+        print(lmList[4], lmList[8])
 
         x1, y1 = lmList[4][1], lmList[4][2]
         x2, y2 = lmList[8][1], lmList[8][2]
+        cx ,cy = (x1+x2)//2, (y1+y2)//2
+        
         cv2.circle(img, (x1, y1), 15, (0, 255, 0), -1)
         cv2.circle(img, (x2, y2), 15, (0, 255, 0), -1)
+        cv2.circle(img, (cx, cy), 15, (255, 255, 0), -1)
         cv2.line(img, (x1, y1), (x2, y2), (0, 255, 0), 5)
     
     
