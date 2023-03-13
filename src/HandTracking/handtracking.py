@@ -4,8 +4,9 @@ import time
 import hand_tracking_module as htm
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 1920)
-cap.set(4, 1080)
+cap.set(3, 1920) # Screen width
+cap.set(4, 1080) # Screen height
+cap.set(10, 130) # Screen Brightness
 pTime = 0
 cTime = 0
 detector = htm.handDetector()
@@ -13,9 +14,10 @@ detector = htm.handDetector()
 while True:
     success, img = cap.read()
     img = detector.findHands(img)
-    lm_list = detector.findPosition(img)
-    if len(lm_list) != 0:
-            print(lm_list[8])
+    lmList = detector.findPosition(img)
+    if len(lmList) != 0:
+            print(lmList[8])
+
     cTime = time.time()
     fps = 1/(cTime - pTime)
     pTime = cTime
