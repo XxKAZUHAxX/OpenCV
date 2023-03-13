@@ -13,9 +13,9 @@ detector = htm.handDetector()
 while True:
     success, img = cap.read()
     img = detector.findHands(img)
-    lm_list = detector.findPosition(img, handId=8)
+    lm_list = detector.findPosition(img)
     if len(lm_list) != 0:
-            print(lm_list)
+            print(lm_list[8])
     cTime = time.time()
     fps = 1/(cTime - pTime)
     pTime = cTime
