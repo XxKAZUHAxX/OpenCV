@@ -2,11 +2,11 @@ import cv2
 import time
 
 
-cap = cv2.VideoCapture('./footage/road_traffic01_1080p.mp4')
+cap = cv2.VideoCapture('./footage/road_traffic01_720p.mp4')
 cap.set(3, 1280)
 cap.set(4, 720)
 # Object detection from Stable camera
-object_detector = cv2.createBackgroundSubtractorMOG2(history = 70, varThreshold=60)
+object_detector = cv2.createBackgroundSubtractorMOG2(history = 150, varThreshold=60)
 pTime = 0
 
 while True:
